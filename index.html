@@ -45,28 +45,7 @@
             padding: 0 20px;
         }
 
-        .baroque-border {
-            position: relative;
-        }
-
-        .baroque-border:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gold-gradient);
-            background-size: 200% 200%;
-            animation: shimmer 3s infinite linear;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
+        /* HEADER E NAVIGAZIONE */
         header {
             background-color: rgba(10, 10, 10, 0.95);
             padding: 20px 0;
@@ -88,7 +67,6 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            position: relative;
         }
 
         .logo-text {
@@ -102,17 +80,6 @@
             text-transform: uppercase;
             text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             font-family: 'Playfair Display', serif;
-            position: relative;
-        }
-
-        .logo-text:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--gold-gradient);
         }
 
         nav ul {
@@ -126,31 +93,13 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            font-size: 16px;
-            letter-spacing: 1px;
-            position: relative;
-            padding: 5px 0;
-            font-family: 'Crimson Text', serif;
             font-size: 18px;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold-gradient);
-            transition: width 0.3s;
+            padding: 5px 0;
+            position: relative;
         }
 
         nav a:hover, nav a.active {
             color: var(--accent);
-        }
-
-        nav a:hover:after, nav a.active:after {
-            width: 100%;
         }
 
         .nav-actions {
@@ -163,11 +112,6 @@
             color: var(--light);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .sign-in:hover {
-            color: var(--accent);
         }
 
         .btn-primary {
@@ -181,28 +125,7 @@
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            letter-spacing: 1px;
             font-size: 15px;
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover:before {
-            left: 100%;
         }
 
         .btn-primary:hover {
@@ -221,79 +144,48 @@
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            letter-spacing: 1px;
             font-size: 15px;
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
         }
 
         .btn-secondary:hover {
             border-color: var(--accent);
             color: var(--accent);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
+        /* CONTENUTO PRINCIPALE */
         .page-content {
             flex: 1;
             padding: 40px 0;
         }
 
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* HOME PAGE */
         .hero {
             text-align: center;
             padding: 120px 0;
             margin-bottom: 80px;
             position: relative;
-            overflow: hidden;
             background: 
-                linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.95)),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
+                linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.95));
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .tagline {
-            font-size: 18px;
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
         .hero h1 {
             font-size: 82px;
             margin-bottom: 30px;
-            font-weight: 800;
-            letter-spacing: 3px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-transform: uppercase;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             font-family: 'Playfair Display', serif;
-            margin-top: 20px;
         }
 
         .hero p {
@@ -301,8 +193,6 @@
             max-width: 800px;
             margin: 0 auto 50px;
             color: var(--gray);
-            line-height: 1.8;
-            font-family: 'Crimson Text', serif;
         }
 
         .hero-btns {
@@ -316,63 +206,41 @@
             text-align: center;
             margin-bottom: 60px;
             font-size: 42px;
-            font-weight: 800;
-            letter-spacing: 2px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-family: 'Playfair Display', serif;
-            position: relative;
-            padding-bottom: 20px;
         }
 
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--gold-gradient);
-        }
-
+        /* SERVIZI - GRID ORDINATO */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-bottom: 100px;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .service-card {
             background-color: var(--card-bg);
             border-radius: 8px;
             padding: 30px;
-            transition: all 0.4s;
             border: 1px solid rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             height: 100%;
-        }
-
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border-color: rgba(212, 175, 55, 0.4);
         }
 
         .service-icon {
@@ -386,243 +254,39 @@
             margin-bottom: 25px;
             font-size: 32px;
             color: #000;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
         .service-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
-            font-weight: 700;
             color: var(--accent);
-            font-family: 'Playfair Display', serif;
         }
 
         .service-card p {
             color: var(--gray);
             margin-bottom: 25px;
-            line-height: 1.7;
             flex-grow: 1;
-            font-family: 'Crimson Text', serif;
-            font-size: 17px;
         }
 
         .price {
             font-size: 32px;
-            font-weight: 800;
             color: var(--accent);
             margin-bottom: 25px;
-            font-family: 'Playfair Display', serif;
         }
 
-        .price span {
-            font-size: 16px;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .custom-package {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(255, 215, 0, 0.02));
-            border: 2px dashed rgba(212, 175, 55, 0.3);
-            text-align: center;
-            padding: 50px;
-        }
-
-        .custom-package h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .custom-package p {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 18px;
-        }
-
+        /* DASHBOARD CON RECENSIONI */
         .dashboard {
             background-color: var(--secondary);
             border-radius: 8px;
             padding: 45px;
             margin-bottom: 80px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .dashboard-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 50px;
-            gap: 20px;
-        }
-
-        .user-avatar {
-            width: 70px;
-            height: 70px;
-            background: var(--gold-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #000;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .user-info h3 {
-            font-size: 26px;
-            margin-bottom: 8px;
-            color: var(--accent);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .user-info p {
-            color: var(--gray);
-            font-size: 16px;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .stat-card {
-            background-color: var(--card-bg);
-            padding: 30px 25px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .stat-value {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 10px;
-            line-height: 1;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dashboard-section {
-            margin-bottom: 50px;
-        }
-
-        .dashboard-section h3 {
-            font-size: 26px;
-            margin-bottom: 25px;
-            font-weight: 700;
-            color: var(--accent);
-            font-family: 'Playfair Display', serif;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .dashboard-section h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--gold-gradient);
-        }
-
-        .data-table {
-            width: 100%;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .data-table th, .data-table td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            font-family: 'Crimson Text', serif;
-        }
-
-        .data-table th {
-            background-color: rgba(0, 0, 0, 0.3);
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 14px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .status-completed {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .status-pending {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .empty-state {
-            padding: 60px;
-            text-align: center;
-            color: var(--gray);
-            font-size: 18px;
-            font-family: 'Crimson Text', serif;
         }
 
         .reviews-container {
             background-color: var(--card-bg);
             border-radius: 8px;
             padding: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .review-form {
-            margin-bottom: 30px;
-        }
-
-        .review-rating {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .star {
-            font-size: 24px;
-            color: var(--gray);
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .star:hover, .star.active {
-            color: var(--accent);
-        }
-
-        .reviews-list {
-            max-height: 300px;
-            overflow-y: auto;
-            padding-right: 10px;
+            margin-top: 30px;
         }
 
         .review-item {
@@ -630,368 +294,53 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 15px;
-            border-left: 3px solid var(--primary);
         }
 
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .review-author {
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .review-date {
-            color: var(--gray);
-            font-size: 14px;
-        }
-
-        .review-stars {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        .review-text {
-            color: var(--light);
-            line-height: 1.5;
-        }
-
-        .staff-container {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .staff-member {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .staff-header {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .staff-avatar {
-            width: 100px;
-            height: 100px;
-            background: var(--gold-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
-            color: #000;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .staff-info h3 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: var(--accent);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .staff-role {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .staff-contact {
-            color: var(--gray);
-            font-size: 16px;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .staff-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .auth-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 50px 0;
-        }
-
-        .auth-box {
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 50px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .auth-box h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            text-align: center;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .auth-subtitle {
-            color: var(--gray);
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 16px;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--light);
-            font-family: 'Crimson Text', serif;
-        }
-
-        .form-control {
+        .review-form textarea {
             width: 100%;
             padding: 15px;
             background-color: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 8px;
             color: var(--light);
-            font-size: 16px;
-            transition: border-color 0.3s;
-            font-family: 'Crimson Text', serif;
+            margin-bottom: 15px;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-        }
-
-        .social-login {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 15px;
+        /* STAFF ZONE CON NUMERI REALI */
+        .staff-member {
+            background-color: var(--card-bg);
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            background-color: rgba(0, 0, 0, 0.2);
-            color: var(--light);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            font-family: 'Crimson Text', serif;
+            padding: 40px;
+            margin-bottom: 50px;
         }
 
-        .social-btn:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-            border-color: var(--primary);
-        }
-
-        .social-btn.google {
-            background: linear-gradient(135deg, #4285f4, #34a853);
-        }
-
-        .social-btn.apple {
-            background: linear-gradient(135deg, #000, #333);
-        }
-
-        .social-btn.discord {
-            background: linear-gradient(135deg, #5865f2, #7289da);
-        }
-
-        .auth-divider {
-            display: flex;
-            align-items: center;
-            margin: 30px 0;
-            color: var(--gray);
-        }
-
-        .auth-divider:before, .auth-divider:after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background-color: rgba(212, 175, 55, 0.2);
-        }
-
-        .auth-divider span {
-            padding: 0 20px;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .auth-link {
-            text-align: center;
+        .staff-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-top: 30px;
-            color: var(--gray);
-            font-family: 'Crimson Text', serif;
         }
 
-        .auth-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .auth-link a:hover {
-            text-decoration: underline;
-        }
-
+        /* FOOTER */
         footer {
             background-color: var(--secondary);
             padding: 60px 0 30px;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin-top: auto;
-            position: relative;
-        }
-
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--gold-gradient);
         }
 
         .footer-logo {
             font-size: 32px;
-            font-weight: 900;
             margin-bottom: 25px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             display: inline-block;
             font-family: 'Playfair Display', serif;
         }
 
-        .footer-text {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 18px;
-            line-height: 1.8;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .copyright {
-            color: var(--gray);
-            font-size: 14px;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-            font-family: 'Crimson Text', serif;
-        }
-
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 62px;
-            }
-            
-            nav ul {
-                gap: 25px;
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 48px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-                padding: 0 15px;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .dashboard, .staff-member, .auth-box {
-                padding: 25px;
-            }
-            
-            .staff-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .page-navigation {
-            margin-bottom: 40px;
-        }
-
-        .page-navigation a {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .page-navigation a:hover {
-            color: var(--accent);
-        }
-
+        /* BOTTONE DISCORD */
         .discord-btn {
             background: linear-gradient(135deg, #5865f2, #7289da);
             display: flex;
@@ -999,159 +348,116 @@
             justify-content: center;
             gap: 10px;
         }
-
-        .discord-btn:hover {
-            background: linear-gradient(135deg, #4752c4, #5f73bc);
-        }
-
-        .discord-btn i {
-            font-size: 18px;
-        }
-
-        .baroque-corner {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--dark-gold);
-        }
-
-        .corner-tl {
-            top: 20px;
-            left: 20px;
-            border-right: none;
-            border-bottom: none;
-        }
-
-        .corner-tr {
-            top: 20px;
-            right: 20px;
-            border-left: none;
-            border-bottom: none;
-        }
-
-        .corner-bl {
-            bottom: 20px;
-            left: 20px;
-            border-right: none;
-            border-top: none;
-        }
-
-        .corner-br {
-            bottom: 20px;
-            right: 20px;
-            border-left: none;
-            border-top: none;
-        }
-        
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
     </style>
 </head>
 <body>
-    <header class="baroque-border">
+    <!-- HEADER -->
+    <header>
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo-container" onclick="showPage('home'); return false;">
+                <a href="#" class="logo-container" onclick="showPage('home')">
                     <div class="logo-text">ECHOSHOP</div>
                 </a>
                 
                 <nav>
                     <ul>
-                        <li><a href="#home" class="nav-link active" onclick="showPage('home'); return false;">HOME</a></li>
-                        <li><a href="#services" class="nav-link" onclick="showPage('services'); return false;">SERVICES</a></li>
-                        <li><a href="#dashboard" class="nav-link" onclick="showPage('dashboard'); return false;">DASHBOARD</a></li>
-                        <li><a href="#staff" class="nav-link" onclick="showPage('staff'); return false;">STAFF</a></li>
+                        <li><a href="#" class="nav-link active" onclick="showPage('home')">HOME</a></li>
+                        <li><a href="#" class="nav-link" onclick="showPage('services')">SERVICES</a></li>
+                        <li><a href="#" class="nav-link" onclick="showPage('dashboard')">DASHBOARD</a></li>
+                        <li><a href="#" class="nav-link" onclick="showPage('staff')">STAFF</a></li>
                     </ul>
                 </nav>
                 
                 <div class="nav-actions">
-                    <a href="#login" class="sign-in" onclick="showPage('login'); return false;">SIGN IN</a>
-                    <a href="#register" class="btn-primary" onclick="showPage('register'); return false;">CREATE ACCOUNT</a>
+                    <a href="#" class="sign-in" onclick="showPage('login')">SIGN IN</a>
+                    <a href="#" class="btn-primary" onclick="showPage('register')">CREATE ACCOUNT</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="page-content" id="main-content">
-        <!-- Home Page -->
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="page-content">
+        <!-- HOME PAGE -->
         <div class="container page active" id="home-page">
             <div class="hero">
-                <div class="baroque-corner corner-tl"></div>
-                <div class="baroque-corner corner-tr"></div>
-                <div class="hero-content">
-                    <div class="tagline">DIGITAL LUXURY FOR DISCORD</div>
-                    <h1>ECHOSHOP</h1>
-                    <p>Premium Discord services crafted by experts. Custom bots, stunning designs, powerful scripts – everything your server needs to stand out. Experience digital excellence with our tailored solutions.</p>
-                    <div class="hero-btns">
-                        <button class="btn-primary" onclick="showPage('register')">CREATE ACCOUNT</button>
-                        <button class="btn-secondary" onclick="showPage('login')">SIGN IN</button>
-                    </div>
+                <h1>ECHOSHOP</h1>
+                <p>Premium Discord services crafted by experts. Custom bots, stunning designs, powerful scripts – everything your server needs to stand out.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary" onclick="showPage('register')">CREATE ACCOUNT</button>
+                    <button class="btn-secondary" onclick="showPage('login')">SIGN IN</button>
                 </div>
-                <div class="baroque-corner corner-bl"></div>
-                <div class="baroque-corner corner-br"></div>
             </div>
             
-            <div class="features">
-                <h2 class="section-title">Why Choose EchoShop?</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>Royal Quality</h3>
-                        <p>Exquisite digital craftsmanship with attention to every detail. We deliver only premium quality services fit for royalty.</p>
-                        <button class="btn-secondary" onclick="showPage('services')">Explore Services</button>
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-discord"></i>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3>Premium Materials</h3>
-                        <p>Using only the finest digital tools and frameworks to ensure your project shines with excellence.</p>
-                        <button class="btn-secondary" onclick="showPage('services')">Explore Services</button>
+                    <h3>Custom Discord Bot</h3>
+                    <p>Advanced Discord bots with custom features: moderation, music, economy, ticketing, log systems, and API integrations.</p>
+                    <div class="price">€8</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h3>Timeless Service</h3>
-                        <p>Continuous support and updates to ensure your digital assets remain relevant and functional for years.</p>
-                        <button class="btn-secondary" onclick="showPage('services')">Explore Services</button>
+                    <h3>Logo & Banner Design</h3>
+                    <p>Professional logos, social media banners, streamer overlays, and complete visual identity.</p>
+                    <div class="price">€4</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <h3>Website Development</h3>
+                    <p>Responsive websites, modern web apps, portfolios, and landing pages optimized for performance.</p>
+                    <div class="price">€15</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Custom Python Script</h3>
+                    <p>Automation, web scraping, data analysis, social media bots, and Python scripts for any specific need.</p>
+                    <div class="price">€3+</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Custom Package</h3>
+                    <p>Need multiple services or have a unique project? Get a personalized quote with combined services.</p>
+                    <div class="price">Custom</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Discuss Custom Package
+                    </a>
                 </div>
             </div>
         </div>
-        
-        <!-- Services Page - ORDINATA E SENZA BUCHI -->
-        <div class="container page hidden" id="services-page">
-            <div class="page-navigation">
-                <button class="btn-secondary" onclick="showPage('home')">&larr; Back to Home</button>
-            </div>
+
+        <!-- SERVICES PAGE -->
+        <div class="container page" id="services-page">
+            <button class="btn-secondary" onclick="showPage('home')" style="margin-bottom: 40px;">← Back to Home</button>
             
-            <h1 class="section-title">Our Services</h1>
-            <p style="text-align: center; margin-bottom: 60px; color: var(--gray); max-width: 800px; margin-left: auto; margin-right: auto; font-size: 18px;">Choose from our premium digital services. Each service includes personalized support and unlimited revisions.</p>
+            <h1 class="section-title">All Services</h1>
             
             <div class="services-grid">
                 <div class="service-card">
@@ -1159,4 +465,332 @@
                         <i class="fab fa-discord"></i>
                     </div>
                     <h3>Custom Discord Bot</h3>
-                    <p
+                    <p>Advanced Discord bots with custom features: moderation, music, economy, ticketing, log systems, and API integrations.</p>
+                    <div class="price">€8</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Logo & Banner Design</h3>
+                    <p>Professional logos, social media banners, streamer overlays, and complete visual identity.</p>
+                    <div class="price">€4</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Responsive websites, modern web apps, portfolios, and landing pages optimized for performance.</p>
+                    <div class="price">€15</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Custom Python Script</h3>
+                    <p>Automation, web scraping, data analysis, social media bots, and Python scripts for any specific need.</p>
+                    <div class="price">€3+</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Contact on Discord
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Custom Package</h3>
+                    <p>Need multiple services or have a unique project? Get a personalized quote with combined services.</p>
+                    <div class="price">Custom</div>
+                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn">
+                        <i class="fab fa-discord"></i> Discuss Custom Package
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD PAGE -->
+        <div class="container page" id="dashboard-page">
+            <button class="btn-secondary" onclick="showPage('home')" style="margin-bottom: 40px;">← Back to Home</button>
+            
+            <h1 class="section-title">Your Dashboard</h1>
+            
+            <div class="dashboard">
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 50px;">
+                    <div style="width: 70px; height: 70px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: bold; color: #000;">
+                        U
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent);">User</h3>
+                        <p style="color: var(--gray);">user@example.com</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 50px;">
+                    <div style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 42px; color: var(--accent);">0</div>
+                        <div style="color: var(--gray);">Total Orders</div>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 42px; color: var(--accent);">0</div>
+                        <div style="color: var(--gray);">In Progress</div>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 42px; color: var(--accent);">0</div>
+                        <div style="color: var(--gray);">Completed</div>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 30px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 42px; color: var(--accent);">€0</div>
+                        <div style="color: var(--gray);">Total Spent</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--accent); margin-bottom: 25px;">Leave a Review</h3>
+                <div class="reviews-container">
+                    <form id="reviewForm" onsubmit="submitReview(event)">
+                        <textarea placeholder="Write your review here..." rows="4" required></textarea>
+                        <button type="submit" class="btn-primary">Submit Review</button>
+                    </form>
+                    
+                    <div id="reviewsList" style="margin-top: 30px;">
+                        <div class="review-item">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <strong style="color: var(--accent);">John D.</strong>
+                                <span style="color: var(--gray);">2024-01-15</span>
+                            </div>
+                            <div style="color: var(--accent); margin-bottom: 10px;">★★★★★</div>
+                            <p>Excellent service! The Discord bot works perfectly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAFF PAGE -->
+        <div class="container page" id="staff-page">
+            <button class="btn-secondary" onclick="showPage('home')" style="margin-bottom: 40px;">← Back to Home</button>
+            
+            <h1 class="section-title">Staff Zone</h1>
+            
+            <div class="staff-member">
+                <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 30px;">
+                    <div style="width: 100px; height: 100px; background: var(--gold-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold; color: #000;">
+                        M
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent); font-size: 32px;">Mr.Nexto</h3>
+                        <p style="color: var(--primary); font-weight: bold; font-size: 18px;">Founder & Developer</p>
+                        <p style="color: var(--gray);">@mr.nexto | Available 24/7</p>
+                    </div>
+                </div>
+                
+                <p style="color: var(--gray); font-size: 18px; margin-bottom: 30px;">
+                    Founder of EchoShop with experience in software development, Discord bots, and digital solutions.
+                </p>
+                
+                <div class="staff-stats">
+                    <div style="background-color: var(--card-bg); padding: 20px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 32px; color: var(--accent);">12</div>
+                        <div style="color: var(--gray);">Active Projects</div>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 20px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 32px; color: var(--accent);">8</div>
+                        <div style="color: var(--gray);">Completed Orders</div>
+                    </div>
+                    <div style="background-color: var(--card-bg); padding: 20px; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 32px; color: var(--accent);">100%</div>
+                        <div style="color: var(--gray);">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: var(--card-bg); border-radius: 8px; padding: 40px; margin-bottom: 50px;">
+                <h3 style="color: var(--accent); margin-bottom: 25px;">Platform Statistics</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                    <div>
+                        <p style="color: var(--gray);">Registered Users: <span style="color: var(--accent);">27</span></p>
+                        <p style="color: var(--gray);">Total Orders: <span style="color: var(--accent);">15</span></p>
+                    </div>
+                    <div>
+                        <p style="color: var(--gray);">Services Sold: <span style="color: var(--accent);">22</span></p>
+                        <p style="color: var(--gray);">Total Revenue: <span style="color: var(--accent);">€186</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGIN PAGE -->
+        <div class="container page" id="login-page">
+            <button class="btn-secondary" onclick="showPage('home')" style="margin-bottom: 40px;">← Back to Home</button>
+            
+            <div style="max-width: 500px; margin: 0 auto; padding: 50px 0;">
+                <div style="background-color: var(--card-bg); border-radius: 15px; padding: 50px;">
+                    <h2 style="text-align: center; color: var(--accent); margin-bottom: 10px;">Sign In</h2>
+                    <p style="text-align: center; color: var(--gray); margin-bottom: 40px;">Enter your credentials to access your account</p>
+                    
+                    <form onsubmit="handleLogin(event)">
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; color: var(--light);">Email Address</label>
+                            <input type="email" style="width: 100%; padding: 15px; background-color: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; color: var(--light);" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; color: var(--light);">Password</label>
+                            <input type="password" style="width: 100%; padding: 15px; background-color: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; color: var(--light);" placeholder="••••••••" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">SIGN IN</button>
+                    </form>
+                    
+                    <p style="text-align: center; color: var(--gray); margin-top: 30px;">
+                        Don't have an account? <a href="#" onclick="showPage('register')" style="color: var(--accent); text-decoration: none;">Create Account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTER PAGE -->
+        <div class="container page" id="register-page">
+            <button class="btn-secondary" onclick="showPage('home')" style="margin-bottom: 40px;">← Back to Home</button>
+            
+            <div style="max-width: 500px; margin: 0 auto; padding: 50px 0;">
+                <div style="background-color: var(--card-bg); border-radius: 15px; padding: 50px;">
+                    <h2 style="text-align: center; color: var(--accent); margin-bottom: 10px;">Create Account</h2>
+                    <p style="text-align: center; color: var(--gray); margin-bottom: 40px;">Join EchoShop for premium digital services</p>
+                    
+                    <form onsubmit="handleRegister(event)">
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; color: var(--light);">Username</label>
+                            <input type="text" style="width: 100%; padding: 15px; background-color: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; color: var(--light);" placeholder="Choose a username" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; color: var(--light);">Email Address</label>
+                            <input type="email" style="width: 100%; padding: 15px; background-color: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; color: var(--light);" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; color: var(--light);">Password</label>
+                            <input type="password" style="width: 100%; padding: 15px; background-color: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; color: var(--light);" placeholder="••••••••" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">CREATE ACCOUNT</button>
+                    </form>
+                    
+                    <p style="text-align: center; color: var(--gray); margin-top: 30px;">
+                        Already have an account? <a href="#" onclick="showPage('login')" style="color: var(--accent); text-decoration: none;">Sign In</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">ECHOSHOP</div>
+            <p class="footer-text">Premium digital services crafted to perfection. Custom Discord bots, stunning designs, professional websites, and powerful scripts.</p>
+            <button class="btn-primary" onclick="showPage('services')" style="margin-bottom: 30px;">Explore Services</button>
+            <p class="copyright">&copy; 2024 ECHOSHOP by Mr.Nexto. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FUNZIONE PRINCIPALE PER CAMBIARE PAGINA
+        function showPage(pageId) {
+            // Nascondi tutte le pagine
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Mostra la pagina richiesta
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Aggiorna link attivi nella navigazione
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick')?.includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scrolla in alto
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            return false;
+        }
+        
+        // GESTIONE LOGIN
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Login successful! Redirecting to dashboard...');
+            showPage('dashboard');
+            return false;
+        }
+        
+        // GESTIONE REGISTRAZIONE
+        function handleRegister(event) {
+            event.preventDefault();
+            alert('Account created successfully! Welcome to EchoShop!');
+            showPage('dashboard');
+            return false;
+        }
+        
+        // GESTIONE RECENSIONI
+        function submitReview(event) {
+            event.preventDefault();
+            const textarea = event.target.querySelector('textarea');
+            const reviewText = textarea.value.trim();
+            
+            if (reviewText) {
+                const reviewsList = document.getElementById('reviewsList');
+                const newReview = document.createElement('div');
+                newReview.className = 'review-item';
+                newReview.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <strong style="color: var(--accent);">You</strong>
+                        <span style="color: var(--gray);">${new Date().toLocaleDateString()}</span>
+                    </div>
+                    <div style="color: var(--accent); margin-bottom: 10px;">★★★★★</div>
+                    <p>${reviewText}</p>
+                `;
+                reviewsList.prepend(newReview);
+                textarea.value = '';
+                alert('Thank you for your review!');
+            }
+            
+            return false;
+        }
+        
+        // MOSTRA HOME PAGE ALL'AVVIO
+        showPage('home');
+        
+        // GESTIONE TUTTI I LINK
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
