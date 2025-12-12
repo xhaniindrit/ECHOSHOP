@@ -338,7 +338,6 @@
             background: var(--gold-gradient);
         }
 
-        /* Servizi migliorati - senza buchi */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -592,7 +591,6 @@
             font-family: 'Crimson Text', serif;
         }
 
-        /* Sistema di recensioni nella dashboard */
         .reviews-container {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -1073,22 +1071,22 @@
     <header class="baroque-border">
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo-container" onclick="showPage('home'); event.preventDefault();">
+                <a href="#home" class="logo-container" onclick="showPage('home'); return false;">
                     <div class="logo-text">ECHOSHOP</div>
                 </a>
                 
                 <nav>
                     <ul>
-                        <li><a href="#home" class="nav-link active" onclick="showPage('home'); event.preventDefault();">HOME</a></li>
-                        <li><a href="#services" class="nav-link" onclick="showPage('services'); event.preventDefault();">SERVICES</a></li>
-                        <li><a href="#dashboard" class="nav-link" onclick="showPage('dashboard'); event.preventDefault();">DASHBOARD</a></li>
-                        <li><a href="#staff" class="nav-link" onclick="showPage('staff'); event.preventDefault();">STAFF</a></li>
+                        <li><a href="#home" class="nav-link active" onclick="showPage('home'); return false;">HOME</a></li>
+                        <li><a href="#services" class="nav-link" onclick="showPage('services'); return false;">SERVICES</a></li>
+                        <li><a href="#dashboard" class="nav-link" onclick="showPage('dashboard'); return false;">DASHBOARD</a></li>
+                        <li><a href="#staff" class="nav-link" onclick="showPage('staff'); return false;">STAFF</a></li>
                     </ul>
                 </nav>
                 
                 <div class="nav-actions">
-                    <a href="#login" class="sign-in" onclick="showPage('login'); event.preventDefault();">SIGN IN</a>
-                    <a href="#register" class="btn-primary" onclick="showPage('register'); event.preventDefault();">CREATE ACCOUNT</a>
+                    <a href="#login" class="sign-in" onclick="showPage('login'); return false;">SIGN IN</a>
+                    <a href="#register" class="btn-primary" onclick="showPage('register'); return false;">CREATE ACCOUNT</a>
                 </div>
             </div>
         </div>
@@ -1146,10 +1144,10 @@
             </div>
         </div>
         
-        <!-- Services Page - ORA ORDINATA E SENZA BUCHI -->
+        <!-- Services Page - ORDINATA E SENZA BUCHI -->
         <div class="container page hidden" id="services-page">
             <div class="page-navigation">
-                <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
+                <button class="btn-secondary" onclick="showPage('home')">&larr; Back to Home</button>
             </div>
             
             <h1 class="section-title">Our Services</h1>
@@ -1158,4 +1156,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fab fa-discord"></
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Custom Discord Bot</h3>
+                    <p
