@@ -982,6 +982,14 @@
         .hidden {
             display: none !important;
         }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -995,10 +1003,10 @@
                 
                 <nav>
                     <ul>
-                        <li><a href="#home" class="active" onclick="showPage('home'); return false;">HOME</a></li>
-                        <li><a href="#services" onclick="showPage('services'); return false;">SERVICES</a></li>
-                        <li><a href="#dashboard" onclick="showPage('dashboard'); return false;">DASHBOARD</a></li>
-                        <li><a href="#staff" onclick="showPage('staff'); return false;">STAFF</a></li>
+                        <li><a href="#home" class="nav-link active" onclick="showPage('home'); return false;">HOME</a></li>
+                        <li><a href="#services" class="nav-link" onclick="showPage('services'); return false;">SERVICES</a></li>
+                        <li><a href="#dashboard" class="nav-link" onclick="showPage('dashboard'); return false;">DASHBOARD</a></li>
+                        <li><a href="#staff" class="nav-link" onclick="showPage('staff'); return false;">STAFF</a></li>
                     </ul>
                 </nav>
                 
@@ -1013,7 +1021,7 @@
     <!-- Main Content -->
     <main class="page-content" id="main-content">
         <!-- Home Page -->
-        <div class="container" id="home-page">
+        <div class="container page active" id="home-page">
             <div class="hero">
                 <div class="baroque-corner corner-tl"></div>
                 <div class="baroque-corner corner-tr"></div>
@@ -1061,7 +1069,7 @@
         </div>
         
         <!-- Services Page -->
-        <div class="container hidden" id="services-page">
+        <div class="container page hidden" id="services-page">
             <div class="page-navigation">
                 <a href="#home" onclick="showPage('home'); return false;">&larr; Back to Home</a>
             </div>
@@ -1103,8 +1111,3 @@
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-scroll"></i>
-                    </div>
-                    <h3>Custom Python Script</h3>
-                    <p>Automation, web scraping, data analysis, social media bots, and Python scripts for any specific need.</p>
-                    <div class="price">€3+ <span>/ variable price</span></div>
-                    <a href="https://disc
