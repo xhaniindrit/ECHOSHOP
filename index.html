@@ -338,22 +338,26 @@
             background: var(--gold-gradient);
         }
 
+        /* Servizi migliorati - senza buchi */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-bottom: 100px;
         }
 
         .service-card {
             background-color: var(--card-bg);
             border-radius: 8px;
-            padding: 35px 30px;
+            padding: 30px;
             transition: all 0.4s;
             border: 1px solid rgba(212, 175, 55, 0.2);
             position: relative;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .service-card:before {
@@ -398,7 +402,7 @@
             color: var(--gray);
             margin-bottom: 25px;
             line-height: 1.7;
-            min-height: 100px;
+            flex-grow: 1;
             font-family: 'Crimson Text', serif;
             font-size: 17px;
         }
@@ -586,6 +590,75 @@
             color: var(--gray);
             font-size: 18px;
             font-family: 'Crimson Text', serif;
+        }
+
+        /* Sistema di recensioni nella dashboard */
+        .reviews-container {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .review-form {
+            margin-bottom: 30px;
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            font-size: 24px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .star:hover, .star.active {
+            color: var(--accent);
+        }
+
+        .reviews-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .review-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .review-date {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            color: var(--light);
+            line-height: 1.5;
         }
 
         .staff-container {
@@ -851,6 +924,10 @@
             nav ul {
                 gap: 25px;
             }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -892,6 +969,10 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 15px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -981,10 +1062,14 @@
         .hidden {
             display: none !important;
         }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="baroque-border">
         <div class="container">
             <div class="header-content">
@@ -1009,7 +1094,6 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="page-content" id="main-content">
         <!-- Home Page -->
         <div class="container page active" id="home-page">
@@ -1062,7 +1146,7 @@
             </div>
         </div>
         
-        <!-- Services Page -->
+        <!-- Services Page - ORA ORDINATA E SENZA BUCHI -->
         <div class="container page hidden" id="services-page">
             <div class="page-navigation">
                 <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
@@ -1074,435 +1158,4 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fab fa-discord"></i>
-                    </div>
-                    <h3>Custom Discord Bot</h3>
-                    <p>Advanced Discord bots with custom features: moderation, music, economy, ticketing, log systems, and API integrations.</p>
-                    <div class="price">€8 <span>/ starting price</span></div>
-                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn"><i class="fab fa-discord"></i> Contact on Discord</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Logo & Banner Design</h3>
-                    <p>Royal designs for your brand: professional logos, social media banners, streamer overlays, and complete visual identity.</p>
-                    <div class="price">€4 <span>/ starting price</span></div>
-                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn"><i class="fab fa-discord"></i> Contact on Discord</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3>Website Development</h3>
-                    <p>Responsive websites, modern web apps, portfolios, and landing pages optimized for SEO, performance, and user experience.</p>
-                    <div class="price">€15 <span>/ starting price</span></div>
-                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn"><i class="fab fa-discord"></i> Contact on Discord</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-scroll"></i>
-                    </div>
-                    <h3>Custom Python Script</h3>
-                    <p>Automation, web scraping, data analysis, social media bots, and Python scripts for any specific need.</p>
-                    <div class="price">€3+ <span>/ variable price</span></div>
-                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn"><i class="fab fa-discord"></i> Contact on Discord</a>
-                </div>
-                
-                <div class="service-card custom-package">
-                    <h3>Royal Custom Package</h3>
-                    <p>Need multiple services or have a unique project? Contact us for a custom package tailored to your specific requirements.</p>
-                    <div class="price">Custom <span>/ contact for quote</span></div>
-                    <a href="https://discord.com/channels/1386091370153902201/1386097857383370912" target="_blank" class="btn-primary discord-btn"><i class="fab fa-discord"></i> Discuss Custom Package</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Dashboard Page -->
-        <div class="container page hidden" id="dashboard-page">
-            <div class="page-navigation">
-                <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
-            </div>
-            
-            <h1 class="section-title">Royal Dashboard</h1>
-            
-            <div class="dashboard">
-                <div class="dashboard-header">
-                    <div class="user-avatar" id="dashboard-avatar">U</div>
-                    <div class="user-info">
-                        <h3 id="dashboard-username">Your Majesty</h3>
-                        <p id="dashboard-email">royal@echoshop.com</p>
-                    </div>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Royal Orders</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">In Progress</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Completed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">€0</div>
-                        <div class="stat-label">Royal Treasury</div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-section">
-                    <h3>Your Recent Orders</h3>
-                    <div class="empty-state">
-                        <p>No royal orders found</p>
-                        <button class="btn-secondary" onclick="showPage('services')" style="margin-top: 25px;">Explore Royal Services</button>
-                    </div>
-                </div>
-                
-                <div class="dashboard-section">
-                    <h3>Royal Activity Statistics</h3>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Value</th>
-                                <th>Royal Trend</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Services Commissioned</td>
-                                <td>0</td>
-                                <td>─</td>
-                            </tr>
-                            <tr>
-                                <td>Royal Decrees</td>
-                                <td>0</td>
-                                <td>─</td>
-                            </tr>
-                            <tr>
-                                <td>Royal Member Since</td>
-                                <td id="member-since">Today</td>
-                                <td class="status-completed">↗ New Reign</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Staff Page -->
-        <div class="container page hidden" id="staff-page">
-            <div class="page-navigation">
-                <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
-            </div>
-            
-            <h1 class="section-title">Royal Court</h1>
-            
-            <div class="staff-container">
-                <div class="staff-member">
-                    <div class="staff-header">
-                        <div class="staff-avatar">M</div>
-                        <div class="staff-info">
-                            <h3>Mr.Nexto</h3>
-                            <div class="staff-role">Royal Founder & Master Developer</div>
-                            <div class="staff-contact">@mr.nexto | Available in the Royal Court</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 18px; line-height: 1.8; color: var(--gray);">Royal Founder of EchoShop with over 5 years of experience in software development, Discord bots, and digital solutions. Specialized in Python, JavaScript, and UI/UX design.</p>
-                    
-                    <div class="staff-stats">
-                        <div class="stat-card">
-                            <div class="stat-value">150+</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">98%</div>
-                            <div class="stat-label">Positive Feedback</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">5+</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-section">
-                    <h3>Platform Statistics</h3>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Value</th>
-                                <th>Change</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Registered Users</td>
-                                <td>1,247</td>
-                                <td class="status-completed">↗ +12%</td>
-                            </tr>
-                            <tr>
-                                <td>Total Orders</td>
-                                <td>543</td>
-                                <td class="status-completed">↗ +8%</td>
-                            </tr>
-                            <tr>
-                                <td>Services Sold</td>
-                                <td>892</td>
-                                <td class="status-completed">↗ +15%</td>
-                            </tr>
-                            <tr>
-                                <td>Total Revenue</td>
-                                <td>€24,680</td>
-                                <td class="status-completed">↗ +22%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Login Page -->
-        <div class="container page hidden" id="login-page">
-            <div class="page-navigation">
-                <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
-            </div>
-            
-            <div class="auth-container">
-                <div class="auth-box">
-                    <h2>Sign In</h2>
-                    <p class="auth-subtitle">Enter your credentials to access your account</p>
-                    
-                    <div class="social-login">
-                        <button class="social-btn google" onclick="loginWith('google')">
-                            <i class="fab fa-google"></i>
-                            Continue with Google
-                        </button>
-                        <button class="social-btn apple" onclick="loginWith('apple')">
-                            <i class="fab fa-apple"></i>
-                            Continue with Apple
-                        </button>
-                        <button class="social-btn discord" onclick="loginWith('discord')">
-                            <i class="fab fa-discord"></i>
-                            Continue with Discord
-                        </button>
-                    </div>
-                    
-                    <div class="auth-divider">
-                        <span>or</span>
-                    </div>
-                    
-                    <form id="login-form">
-                        <div class="form-group">
-                            <label for="login-email">Email Address</label>
-                            <input type="email" id="login-email" class="form-control" placeholder="your@email.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="login-password">Password</label>
-                            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">SIGN IN</button>
-                    </form>
-                    
-                    <div class="auth-link">
-                        Don't have an account? <a href="#" onclick="showPage('register'); event.preventDefault();">Create Account</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Register Page -->
-        <div class="container page hidden" id="register-page">
-            <div class="page-navigation">
-                <a href="#" onclick="showPage('home'); event.preventDefault();">&larr; Back to Home</a>
-            </div>
-            
-            <div class="auth-container">
-                <div class="auth-box">
-                    <h2>Create Account</h2>
-                    <p class="auth-subtitle">Join EchoShop for premium digital services</p>
-                    
-                    <div class="social-login">
-                        <button class="social-btn google" onclick="registerWith('google')">
-                            <i class="fab fa-google"></i>
-                            Sign up with Google
-                        </button>
-                        <button class="social-btn apple" onclick="registerWith('apple')">
-                            <i class="fab fa-apple"></i>
-                            Sign up with Apple
-                        </button>
-                        <button class="social-btn discord" onclick="registerWith('discord')">
-                            <i class="fab fa-discord"></i>
-                            Sign up with Discord
-                        </button>
-                    </div>
-                    
-                    <div class="auth-divider">
-                        <span>or</span>
-                    </div>
-                    
-                    <form id="register-form">
-                        <div class="form-group">
-                            <label for="register-username">Username</label>
-                            <input type="text" id="register-username" class="form-control" placeholder="Choose a username" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-email">Email Address</label>
-                            <input type="email" id="register-email" class="form-control" placeholder="your@email.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-password">Password</label>
-                            <input type="password" id="register-password" class="form-control" placeholder="••••••••" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="register-confirm">Confirm Password</label>
-                            <input type="password" id="register-confirm" class="form-control" placeholder="••••••••" required>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">CREATE ACCOUNT</button>
-                    </form>
-                    
-                    <div class="auth-link">
-                        Already have an account? <a href="#" onclick="showPage('login'); event.preventDefault();">Sign In</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">ECHOSHOP</div>
-            <p class="footer-text">Premium digital services crafted to perfection. Custom Discord bots, stunning designs, professional websites, and powerful scripts.</p>
-            <button class="btn-primary" onclick="showPage('services')">Explore Services</button>
-            <p class="copyright">&copy; 2023 ECHOSHOP by Mr.Nexto. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Gestione navigazione tra pagine
-        function showPage(pageId) {
-            // Nascondi tutte le pagine
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-                page.classList.add('hidden');
-            });
-            
-            // Mostra la pagina richiesta
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.classList.add('active');
-            }
-            
-            // Aggiorna link attivi nella navigazione
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Imposta il link attivo corrispondente
-            if (pageId === 'home' || pageId === 'login' || pageId === 'register') {
-                const homeLink = document.querySelector('a[href="#home"]');
-                if (homeLink) homeLink.classList.add('active');
-            } else {
-                const activeLink = document.querySelector(`a[href="#${pageId}"]`);
-                if (activeLink) activeLink.classList.add('active');
-            }
-            
-            // Scrolla in alto
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Login form
-        document.getElementById('login-form')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            if (email && password) {
-                // Aggiorna dashboard con dati utente
-                document.getElementById('dashboard-username').textContent = email.split('@')[0];
-                document.getElementById('dashboard-avatar').textContent = email.charAt(0).toUpperCase();
-                document.getElementById('dashboard-email').textContent = email;
-                document.getElementById('member-since').textContent = new Date().toLocaleDateString();
-                
-                alert(`Welcome back, ${email.split('@')[0]}!`);
-                showPage('dashboard');
-            }
-        });
-        
-        // Register form
-        document.getElementById('register-form')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('register-username').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            const confirm = document.getElementById('register-confirm').value;
-            
-            if (password !== confirm) {
-                alert('Passwords do not match!');
-                return;
-            }
-            
-            if (username && email && password) {
-                // Aggiorna dashboard con dati utente
-                document.getElementById('dashboard-username').textContent = username;
-                document.getElementById('dashboard-avatar').textContent = username.charAt(0).toUpperCase();
-                document.getElementById('dashboard-email').textContent = email;
-                document.getElementById('member-since').textContent = new Date().toLocaleDateString();
-                
-                alert(`Account created successfully! Welcome to EchoShop, ${username}!`);
-                showPage('dashboard');
-            }
-        });
-        
-        // Login con social
-        function loginWith(provider) {
-            alert(`Redirecting to ${provider} login...\n(Simulation - in a real site this would redirect to OAuth)`);
-            // Simula login
-            document.getElementById('dashboard-username').textContent = 'SocialUser';
-            document.getElementById('dashboard-avatar').textContent = 'S';
-            document.getElementById('dashboard-email').textContent = `user@${provider}.com`;
-            showPage('dashboard');
-        }
-        
-        // Register con social
-        function registerWith(provider) {
-            alert(`Redirecting to ${provider} registration...\n(Simulation - in a real site this would redirect to OAuth)`);
-            // Simula registrazione
-            document.getElementById('dashboard-username').textContent = 'SocialUser';
-            document.getElementById('dashboard-avatar').textContent = 'S';
-            document.getElementById('dashboard-email').textContent = `user@${provider}.com`;
-            showPage('dashboard');
-        }
-        
-        // Mostra home page all'avvio
-        showPage('home');
-        
-        // Prevenzione comportamento default per tutti i link
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                        <i class="fab fa-discord"></
